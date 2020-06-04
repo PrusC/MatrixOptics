@@ -52,7 +52,7 @@ class ABCD(object):
             return ABCD(self.matrix.dot(other.matrix))
 
         if isinstance(other, Ray):
-            mat = self.matrix.dot(numpy.array([other.y, other.alpha]))
+            mat = self.matrix.dot(other.raw)
             return Ray(y=mat[0], alpha=mat[1])
 
     def __eq__(self, other):
