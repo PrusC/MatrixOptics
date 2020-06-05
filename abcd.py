@@ -12,7 +12,7 @@ class ABCD(object):
             self._B = args[1]
             self._C = args[2]
             self._D = args[3]
-        elif len(args) == 1 and isinstance(args[0], numpy.ndarray):
+        elif len(args) == 1 and isinstance(args[0], numpy.ndarray) and args[0].shape == 2:
             mat = args[0]
             A = mat[0][0]
             B = mat[0][1]
