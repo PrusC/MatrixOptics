@@ -25,6 +25,7 @@ class Translation(ABCD):
 
 
 SRS = SphericalRefractiveSurface
+T = Translation
 
 
 class Lense(ABCD):
@@ -32,3 +33,13 @@ class Lense(ABCD):
     def __init__(self, R1, R2, d, n, n_outer=1.0):
         L = SRS(R2, n, n_outer)*Translation(d, n)*SRS(R1, n_outer, n)
         super(Lense, self).__init__(L.matrix)
+
+    @property
+    def F(self):
+        return -1.0/self.C
+
+
+class ThinLense(ABCD):
+
+    def __init__(self, f):
+        super(ThinLense, self).__init__(1, 0, -1.0/f, 1)
