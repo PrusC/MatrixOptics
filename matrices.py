@@ -21,7 +21,7 @@ class SphericalRefractiveSurface(ABCD):
 class Translation(ABCD):
 
     def __init(self, d, n):
-        super(Translation, self).__init(1, float(d/n), 0, 1)
+        super(Translation, self).__init__(1, float(d/n), 0, 1)
 
 
 SRS = SphericalRefractiveSurface

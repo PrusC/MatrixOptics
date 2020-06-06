@@ -13,7 +13,7 @@ class GaussianBeam(object):
         else:
             w = kwargs.get('w', 10e-6)
             R = kwargs.get('R', float('inf'))
-            self._q = 1.0/R - (self._wl/(math.pi*w*w))*1j
+            self._q = 1.0(1.0/R - (self._wl/(math.pi*w*w))*1j)
 
     @property
     def wl(self):
