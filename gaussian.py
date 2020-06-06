@@ -3,10 +3,25 @@ import math
 
 class GaussianBeam(object):
 
-    def __init__(self, wl=1.064e-6, z=0.0, q=None):
+    def __init__(self, wl=1.064e-6, z=0.0, **kwargs):
         self._wl = wl
         self._z = z
-        self._q = None
+        #  w=10e-6, R=float('inf'), q=None
+        q = kwargs.get('q', None)
+        if q is not None:
+            self._q = None
+        else:
+            w = kwargs.get('w', 10e-6)
+            R = kwargs.get('R', float('inf'))
+            self._q = 1.0/R - (self._wl/(math.pi*w*w))*1j
+
+    @property
+    def wl(self):
+        return self._wl
+
+    @property
+    def z(self):
+        return self._z
 
     @property
     def q(self):
@@ -31,3 +46,7 @@ class GaussianBeam(object):
             return math.sqrt(self._wl/(math.pi * imag))
         else:
             return float('inf')
+
+    # @property
+    # def zr(self):
+    #     return

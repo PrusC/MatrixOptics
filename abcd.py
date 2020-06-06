@@ -1,5 +1,6 @@
 import numpy
 from ray import Ray
+from gaussian import GaussianBeam
 
 
 class ABCD(object):
@@ -54,6 +55,10 @@ class ABCD(object):
         if isinstance(other, Ray):
             mat = self.matrix.dot(other.raw)
             return Ray(y=mat[0], alpha=mat[1])
+
+        if isinstance(other, GaussianBeam):
+            q2 = (self.A*other.q + self.B)/(self.C*other.q + self.D)
+            return GaussianBeam(other.wl, other.z, q=q2)
 
     def __eq__(self, other):
         if not isinstance(other, ABCD):
