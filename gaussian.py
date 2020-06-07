@@ -68,13 +68,15 @@ class GaussianBeam(object):
         return self.q.real
 
     def __str__(self):
-        des = "Gaussian beam parameters:\n"
+        des = "/-------------------------------/\n"
+        des += "Gaussian beam parameters:\n"
         des += "Q  {}\n".format(self.q)
-        des += "w(z): {}\n".format(self.w)
+        des += "w(z): {} mkm\n".format(self.w*1e6)
         des += "R(z): {}\n".format(self.R)
-        des += "z: {}\n".format(self.z)
+        des += "z: {} mm\n".format(self.z*1e3)
         des += "wavelength: {} nm\n".format(self.wavelength*1e6)
         des += "Rayleigh Length: {} mm\n".format(self.rayleigh_length*1e3)
         des += "waist: {} mkm\n".format(self.waist*1e6)
         des += "waist position: {} mm\n".format(self.waist_position*1e3)
+        des += "/-------------------------------/\n"
         return des
