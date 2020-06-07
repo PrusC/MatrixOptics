@@ -6,6 +6,7 @@ from gaussian import GaussianBeam
 class ABCD(object):
 
     def __init__(self, *args):
+
         A, B, C, D = 1.0, 0.0, 0.0, 1.0
         if len(args) == 4:
             A, B, C, D = args[0], args[1], args[2], args[3]
@@ -13,7 +14,7 @@ class ABCD(object):
             self._B = args[1]
             self._C = args[2]
             self._D = args[3]
-        elif len(args) == 1 and isinstance(args[0], numpy.ndarray) and args[0].shape == 2:
+        elif len(args) == 1 and isinstance(args[0], numpy.ndarray) and args[0].shape == (2, 2):
             mat = args[0]
             A = mat[0][0]
             B = mat[0][1]
@@ -50,7 +51,8 @@ class ABCD(object):
 
     def __mul__(self, other):
         if isinstance(other, ABCD):
-            return ABCD(self.matrix.dot(other.matrix))
+            # return ABCD(self.matrix.dot(other.matrix))
+            return ABCD(numpy.dot(self.matrix, other.matrix))
 
         if isinstance(other, Ray):
             mat = self.matrix.dot(other.raw)
