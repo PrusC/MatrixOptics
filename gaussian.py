@@ -80,3 +80,11 @@ class GaussianBeam(object):
         des += "waist position: {} mm\n".format(self.waist_position*1e3)
         des += "/-------------------------------/\n"
         return des
+
+    def Wz(self, z):
+        d = (z-self.waist_position)/self.rayleigh_length
+        return self.waist*math.sqrt(1 + d*d)
+
+    def Rz(self, z):
+        d = self.rayleigh_length/(z-self.waist_position)
+        return (z-self.waist_position)*(1 + d*d)
