@@ -58,7 +58,7 @@ class ABCD(object):
 
         if isinstance(other, GaussianBeam):
             q2 = (self.A*other.q + self.B)/(self.C*other.q + self.D)
-            return GaussianBeam(other.wl, other.z, q=q2)
+            return GaussianBeam(other.wavelength, q=q2)
 
     def __eq__(self, other):
         if not isinstance(other, ABCD):
@@ -72,10 +72,3 @@ class ABCD(object):
         if self.D != other.D:
             return False
         return True
-
-
-A = ABCD(1, 0, 0, 1)
-B = ABCD(1, 1, 1, 1)
-r = Ray(2, 3)
-
-print(A*r)
