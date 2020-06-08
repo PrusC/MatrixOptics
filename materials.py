@@ -1,5 +1,6 @@
 import math
 
+
 def N(Y):
     A = 0.6961663
     B = 0.4079426

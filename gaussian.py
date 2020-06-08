@@ -11,7 +11,6 @@ class GaussianBeam(object):
         else:
             self._wl = wl*1e-9
         # self._z = z
-        #  w=10e-6, R=float('inf'), q=None
         q = kwargs.get('q', None)
         if q is not None:
             self._q = q

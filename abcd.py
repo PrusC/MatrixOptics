@@ -20,6 +20,8 @@ class ABCD(object):
             B = mat[0][1]
             C = mat[1][0]
             D = mat[1][1]
+        else:
+            raise AttributeError("Unknown input parameters")
         self._A = float(A)
         self._B = float(B)
         self._C = float(C)
