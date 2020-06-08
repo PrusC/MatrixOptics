@@ -7,15 +7,15 @@ gaus = GaussianBeam(1064, w=7e-6)
 print(gaus)
 
 L = Lense(R1=25.84e-3, d=4.9e-3, n=N_BK7.n(gaus.wavelength))
-L2 = Lense(R2=-9.87e-3, d=4e-3, n=N_BK7.n(gaus.wavelength))
+L2 = Lense(R1=9.87e-3, d=4e-3, n=N_BK7.n(gaus.wavelength))
 print(L.F)
-gaus3 = L*T(L.F)*gaus
+gaus3 = L2*T(L2.F)*gaus
 print(gaus3)
 
-gaus3 = L*T(70e-3)*gaus
-print(gaus3)
-print(gaus3.Wz_from_current(184.6780598631493e-3))
-gaus3 = L*T(24e-3)*gaus
+# gaus3 = L*T(70e-3)*gaus
+# print(gaus3)
+# print(gaus3.Wz_from_current(184.6780598631493e-3))
+# gaus3 = L*T(24e-3)*gaus
 # print(gaus3)
 
 
