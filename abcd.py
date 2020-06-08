@@ -48,6 +48,10 @@ class ABCD(object):
         return numpy.array([[self._A, self._B],
                             [self._C, self._D]])
 
+    @property
+    def det(self):
+        return self.A*self.D - self.B*self.C
+
     def __str__(self):
         return self.matrix.__str__()
 
