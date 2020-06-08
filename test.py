@@ -14,6 +14,7 @@ print(gaus3)
 
 gaus3 = L*T(70e-3)*gaus
 print(gaus3)
+print(gaus3.Wz_from_current(184.6780598631493e-3))
 gaus3 = L*T(24e-3)*gaus
 # print(gaus3)
 

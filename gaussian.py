@@ -44,15 +44,15 @@ class GaussianBeam(object):
 
     @property
     def w(self):
-        imag = -(1/self._q).imag
+        imag = -(1/self.q).imag
         if imag > 0:
-            return math.sqrt(self._wl/(math.pi * imag))
+            return math.sqrt(self.wavelength/(math.pi * imag))
         else:
             return float('inf')
 
     @property
     def waist(self):
-        return math.sqrt(self.q.imag*self._wl/math.pi)
+        return math.sqrt(self.q.imag*self.wavelength/math.pi)
 
     @property
     def waist_position(self):
@@ -65,6 +65,10 @@ class GaussianBeam(object):
     @property
     def z(self):
         return self.q.real
+
+    @property
+    def divergence(self):
+        return self.wavelength/(math.pi*self.waist)
 
     def __str__(self):
         des = "/-------------------------------/\n"
@@ -87,3 +91,11 @@ class GaussianBeam(object):
     def Rz(self, z):
         d = self.rayleigh_length/(z-self.waist_position)
         return (z-self.waist_position)*(1 + d*d)
+
+    def Wz_from_current(self, z):
+        d = (z-self.z)/self.rayleigh_length
+        return self.waist * math.sqrt(1 + d * d)
+
+    def Rz_from_current(self, z):
+        d = self.rayleigh_length / (z-self.z)
+        return (z-self.z) * (1 + d * d)
