@@ -11,7 +11,9 @@ L2 = Lense(R1=9.87e-3, d=4e-3, n=N_BK7.n(gaus.wavelength))
 print(L.F)
 gaus3 = L2*T(L2.F)*gaus
 print(gaus3)
-
+print(gaus3.z - gaus3.waist_position)
+print(gaus3.Wz(gaus3.waist_position*2)*1e6)
+print(gaus3.Rz(gaus3.waist_position*2))
 # gaus3 = L*T(70e-3)*gaus
 # print(gaus3)
 # print(gaus3.Wz_from_current(184.6780598631493e-3))

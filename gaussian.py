@@ -89,6 +89,8 @@ class GaussianBeam(object):
         return self.waist*math.sqrt(1 + d*d)
 
     def Rz(self, z):
+        if z == self.waist_position:
+            return float('+inf')
         d = self.rayleigh_length/(z-self.waist_position)
         return (z-self.waist_position)*(1 + d*d)
 
