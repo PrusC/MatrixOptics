@@ -9,7 +9,8 @@ class SphericalRefractiveSurface(ABCD):
         self._n1 = n1
         A = 1
         B = 0
-        C = float(-(n2-n1)/(n2*R))
+        # C = float(-(n2-n1)/(n2*R))
+        C = float((n1 - n2) / R)
         D = 1.0#float(n1/n2)
         super(SphericalRefractiveSurface, self).__init__(A, B, C, D)
 
@@ -31,7 +32,7 @@ T = Translation
 class Lense(ABCD):
 
     def __init__(self, R1, R2, d, n, n_outer=1.0):
-        L = SRS(R2, n, n_outer)*Translation(d, n)*SRS(R1, n_outer, n)
+        L = SRS(R2, n_outer, n)*Translation(d, n)*SRS(R1, n, n_outer)
         super(Lense, self).__init__(L.matrix)
 
     @property
