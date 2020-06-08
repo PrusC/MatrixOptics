@@ -31,7 +31,7 @@ T = Translation
 
 class Lense(ABCD):
 
-    def __init__(self, R1, R2, d, n, n_outer=1.0):
+    def __init__(self, R1=float('inf'), R2=float('inf'), d=0.0, n=1.0, n_outer=1.0):
         L = SRS(R2, n_outer, n)*Translation(d, n)*SRS(R1, n, n_outer)
         super(Lense, self).__init__(L.matrix)
 

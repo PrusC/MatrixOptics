@@ -51,8 +51,8 @@ class ABCD(object):
 
     def __mul__(self, other):
         if isinstance(other, ABCD):
-            # return ABCD(self.matrix.dot(other.matrix))
-            return ABCD(numpy.dot(self.matrix, other.matrix))
+            return ABCD(self.matrix.dot(other.matrix))
+            # return ABCD(numpy.dot(self.matrix, other.matrix))
 
         if isinstance(other, Ray):
             mat = self.matrix.dot(other.raw)

@@ -6,7 +6,7 @@ from materials import N_BK7
 gaus = GaussianBeam(1064, w=7e-6)
 print(gaus)
 
-L = Lense(float('inf'), -9.87e-3, 4e-3, N_BK7(gaus.wavelength), 1.0)
+L = Lense(R1=9.87e-3, d=4e-3, n=N_BK7(gaus.wavelength))
 print(L.F)
 gaus3 = L*T(L.F)*gaus
 print(gaus3)
