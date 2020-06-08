@@ -1,16 +1,16 @@
 from matrices import *
 from gaussian import GaussianBeam
 from ray import Ray
-
+from materials import N_BK7
 
 gaus = GaussianBeam(1064, w=7e-6)
-gaus3 = ThinLense(f=20e-3)*T(20e-3)*gaus
 print(gaus)
+
+L = Lense(float('inf'), -9.87e-3, 4e-3, N_BK7(gaus.wavelength), 1.0)
+gaus3 = L*T(19.1e-3)*gaus
+print(gaus3)
+
+gaus3 = ThinLense(f=19.1e-3)*T(19.1e-3)*gaus
 print(gaus3)
 
 
-gaus = GaussianBeam(1064, w=7e-6*1.1)
-# gaus2 = T(20e-3, 1.0)*gaus
-# print(gaus2)
-gaus3 = ThinLense(f=20e-3)*T(20e-3, 1.0)*gaus
-# print(gaus3)
