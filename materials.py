@@ -2,7 +2,6 @@ import math
 
 
 class Material(object):
-
     A = 1.0
     B = 1.0
     C = 1.0
