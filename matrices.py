@@ -45,3 +45,7 @@ class ThinLense(ABCD):
 
     def __init__(self, f):
         super(ThinLense, self).__init__(1, 0, -1.0/f, 1)
+
+    @property
+    def F(self):
+        return -1.0/self.C
