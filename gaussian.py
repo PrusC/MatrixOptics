@@ -94,10 +94,10 @@ class GaussianBeam(object):
         d = self.rayleigh_length/(z-self.waist_position)
         return (z-self.waist_position)*(1 + d*d)
 
-    def Wz_from_current(self, z):
-        d = (z-self.z)/self.rayleigh_length
-        return self.waist * math.sqrt(1 + d * d)
-
-    def Rz_from_current(self, z):
-        d = self.rayleigh_length / (z-self.z)
-        return (z-self.z) * (1 + d * d)
+    # def Wz_from_current(self, z):
+    #     d = (z-self.z)/self.rayleigh_length
+    #     return self.waist * math.sqrt(1 + d * d)
+    #
+    # def Rz_from_current(self, z):
+    #     d = self.rayleigh_length / (z-self.z)
+    #     return (z-self.z) * (1 + d * d)
