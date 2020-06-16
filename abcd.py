@@ -6,20 +6,18 @@ from gaussian import GaussianBeam
 class ABCD(object):
 
     def __init__(self, *args):
-
         A, B, C, D = 1.0, 0.0, 0.0, 1.0
+
         if len(args) == 4:
             A, B, C, D = args[0], args[1], args[2], args[3]
-            self._A = args[0]
-            self._B = args[1]
-            self._C = args[2]
-            self._D = args[3]
+
         elif len(args) == 1 and isinstance(args[0], numpy.ndarray) and args[0].shape == (2, 2):
             mat = args[0]
             A = mat[0][0]
             B = mat[0][1]
             C = mat[1][0]
             D = mat[1][1]
+
         else:
             raise AttributeError("Unknown input parameters")
         self._A = float(A)

@@ -10,9 +10,8 @@ class SphericalRefractiveSurface(ABCD):
         self._n1 = n1
         A = 1
         B = 0
-        # C = float(-(n2-n1)/(n2*R))
         C = float((n1 - n2) / R)
-        D = 1.0#float(n1/n2)
+        D = 1.0
         super(SphericalRefractiveSurface, self).__init__(A, B, C, D)
 
     @property
