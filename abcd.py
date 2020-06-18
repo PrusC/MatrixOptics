@@ -66,6 +66,8 @@ class ABCD(object):
             q2 = (self.A*other.q + self.B)/(self.C*other.q + self.D)
             return GaussianBeam(other.wavelength, q=q2)
 
+        raise TypeError("Wrong type")
+
     def __eq__(self, other):
         if not isinstance(other, ABCD):
             return False
