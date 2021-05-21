@@ -1,4 +1,4 @@
-from abcd import ABCD
+from .abcd import ABCD
 import cmath
 
 

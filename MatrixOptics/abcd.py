@@ -1,6 +1,6 @@
 import numpy
-from ray import Ray
-from gaussian import GaussianBeam
+from .ray import Ray
+from .gaussian import GaussianBeam
 
 
 class ABCD(object):
